@@ -106,4 +106,6 @@
 - It is possible to use a third party domain registrar with AWS. In order to use a domain bought from the third party, we have to do the following:
     1. Create a hosted zone in Route53
     2. Update NS records on 3rd party website to use Route 53 name servers
+- Domain Registrar != DNS Service
+- But every Domain Registrar usually comes with some DNS features
     
