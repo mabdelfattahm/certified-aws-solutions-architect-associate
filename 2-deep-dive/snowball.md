@@ -28,6 +28,15 @@
 - It is useful for pre-processing data while it is moving
 - Use cases: data migration, image collation, IoT capture, machine learning
 
+## Snowcone
+
+- Small, portable computing, anywhere, rugged & secure, withstands harsh environments
+- Device used for edge computing, storage, and data transfer
+- 8 TBs of usable storage
+- Use Snowcone where Snowball does not fit (space constrained environment)
+- Must provide your own battery / cables
+- Can be sent back to AWS offline, or connect it to internet and use AWS DataSync to send data
+
 ## Snowmobile
 
 - It is truck which can transfer exabytes of data
