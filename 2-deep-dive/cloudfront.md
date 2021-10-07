@@ -62,3 +62,19 @@
     - It issues requests as the person whe pre-signed the URL
     - It uses the IAM key of the signing IAM principal
     - It has a limited lifetime
+
+## CloudFront – Origin Groups
+
+- To increase high-availability and do failover
+- Origin Group: one primary and one secondary origin
+- If the primary origin fails, the second one is used
+
+## CloudFront – Field Level Encryption
+
+- Protect user sensitive information through application stack
+- Adds an additional layer of security along with HTTPS
+- Sensitive information encrypted at the edge close to user
+- Uses asymmetric encryption
+- Usage:
+    - Specify set of fields in POST requests that you want to be encrypted (up to 10 fields)
+    - Specify the public key to encrypt them
