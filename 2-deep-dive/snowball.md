@@ -46,4 +46,9 @@
 ## Snowball into Glacier
 
 - Snowball can not import data directly to Glacier
-- We have to use Amazon S3 first, adn an S3 lifecycle policy
+- We have to use Amazon S3 first, and an S3 lifecycle policy
+
+## OpsHub
+
+- Software you install to manage Snow Family Device
+- Launch AWS services on your devices and monitoring/managing instances
