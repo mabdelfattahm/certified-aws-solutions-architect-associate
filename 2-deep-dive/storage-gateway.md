@@ -50,3 +50,4 @@
 - File access / NFS => File Gateway (backed by S3)
 - Volumes / Block Storage / iSCSI => Volume Gateway (backed by S3 with EBS snapshots)
 - VTL Tape solution / Backup with iSCSI => Tape Gateway (backed by S3 and Glacier)
+- No on-premises virtualization => Hardware Appliance
