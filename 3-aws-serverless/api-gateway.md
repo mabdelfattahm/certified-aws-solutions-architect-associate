@@ -14,23 +14,25 @@
 
 ## API Gateway - Integrations
 
-- Lambda Functions
+-** Lambda Functions**
     - It can invoke Lambda functions
     - Easy way to expose REST API backed by AWS Lambda
-- HTTP
-    - Exposes HTTP endpoints in the back-end. Example: internal HTTP API on premise, Application Load Balancer, etc. By this we can add features like rate limiting, user authentication, API keys to existing back-ends
-- AWS Service
-    - We can expose any AWS API through API Gateway, examples: API for starting a Step Function workflow, API for posting a message to SQS
+- **HTTP**
+    - Exposes HTTP endpoints in the back-end. 
+    - Example: internal HTTP API on premise, Application Load Balancer, etc. By this we can add features like rate limiting, user authentication, API keys to existing back-ends
+- **AWS Service**
+    - We can expose any AWS API through API Gateway
+    - Examples: API for starting a Step Function workflow, API for posting a message to SQS
 
 ## Endpoint Types
 
-- Edge-Optimized (default): for global clients
+- **Edge-Optimized (default)**: for global clients
     - Requests are routed through the CloudFormation Edge locations
     - The API Gateway still lives in only one region
-- Regional:
+- **Regional**:
     - For clients within the same region
     - Could manually be combined with CloudFront having more control over caching strategies and distributions
-- Private:
+- **Private**:
     - Can only be accessed from a VPC using an ENI
     - We can use resource policies to define access
 
