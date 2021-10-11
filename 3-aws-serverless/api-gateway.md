@@ -43,7 +43,8 @@
 - We can give access to an API by creating an IAM policy authorization and attach it to an User/Role
 - API Gateway verifies IAM permissions passed by the calling application
 - Good practice to provide access within own infrastructure
-- It leverages Sig v4 signatures by adding the signature to a header 
+- It leverages **Sig v4** signatures by adding the signature to a header 
+    - If you see Sig v4, think API gateway IAM permissions
 
 ### Lambda Authorizer (Custom Authorizer)
 
@@ -61,16 +62,16 @@
 
 ### Summary
 
-- IAM:
+- **IAM**:
     - Great for user/roles already within an AWS account
     - Handles authentication + authorization
     - Leverages Sig v4
-- Custom Authorizer:
+- **Custom Authorizer**:
     - Great for 3rd party tokens
     - Very flexible in terms of what IAM policy is returned
     - Handles authentication + authorization
     - We pay per lambda invocation
-- Cognito User Pools
+- **Cognito User Pools**
     - We manage our own user pool, which can be backed by Facebook, Google login, etc.
     - There is no need to write custom code
     - Authorization in the backend must be implemented
