@@ -23,7 +23,7 @@
     -** By default, trails are configured to log management events.**
     - Can separate **Read Events** (that don’t modify resources) from **Write Events** (that may modify resources)
 
-- Data Events:
+- **Data Events**:
     - These events provide insight into the resource operations performed on or within a resource. These are also known as data plane operations
     - **By default, data events are not logged (because high volume operations)**
     - Amazon **S3** object-level activity (ex: GetObject, DeleteObject, PutObject): can separate Read and Write Events
@@ -48,3 +48,8 @@
     - Anomalies appear in the CloudTrail console
     - Event is sent to Amazon S3
     - An EventBridge event is generated (for automation needs)
+
+## CloudTrail Events Retention
+
+- Events are stored for 90 days in CloudTrail
+- To keep events beyond this period, log them to S3 and use Athena
