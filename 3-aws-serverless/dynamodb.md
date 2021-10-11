@@ -47,14 +47,34 @@
 
 ## DynamoDB Streams
 
-- Changes in DynamoDB (Create, Update, Delete) can end up in a DynamoDB stream - change log of everything happened in the table
+- Ordered stream of item-level modifications (create/update/delete) in a table
+- Stream records can be:
+    - Sent to **Kinesis Data Streams**
+    - Read by **AWS Lambda**
+    - Read by **Kinesis Client Library applications**
+- Data retention for up to 24 hours
 - This stream can be read by AWS Lambda, with which we can do some integrations:
     - React to changes in real time (example: welcome email to new users)
     - Analytics
     - Create derivative tables/views
     - Insert into ElasticSearch
 - We can implement cross region replication using Stream
-- Streams has 24 hours of data retention
+
+### DynamoDB Global Tables
+
+- Make a DynamoDB table accessible with low latency in multiple-regions
+- Active-Active replication
+- Applications can READ and WRITE to the table in any region
+- Must enable DynamoDB Streams as a pre-requisite
+
+### DynamoDB - Time To Live (TTL)
+
+- Automatically delete items after an expiry timestamp
+
+### DynamoDB - Indexes
+
+- Global Secondary Indexes (GSI) & Local Secondary Indexes (LSI)
+- High level: allow to query on attributes (columns) other than the Primary Key
 
 ## DynamoDB - New Features
 
