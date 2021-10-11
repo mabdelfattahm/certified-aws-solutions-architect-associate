@@ -14,7 +14,7 @@
 
 ## AWS Cognito User Pools
 
-- It is a serverless database for users of an application
+- It is a serverless database for users of a **mobile** application
 - it is a simple login provider: username (or email) / password combination
 - Possibility to verify emails/phone numbers and add MFA
 - Can enable Federated Identities (Facebook, Google, SAML, etc.). **This is not the same CIP (AWS Federated Identity)!**
