@@ -1,13 +1,13 @@
 # AWS CloudTrail
 
-- Provides governance, compliance and audit for an AWS account
+- **Provides governance, compliance and audit for an AWS account**
 - CloudTrail is enabled by default
 - CloudTrail provides a **history of events/API calls made within an AWS account** from:
     - AWS Console
     - SDK
     - CLI
     - AWS services
-- Logs from CloudTrail can be put into CloudWatch Logs
+- Logs from CloudTrail can be put into CloudWatch Logs or S3
 - **A trail can be applied to All Regions (default) or a single Region.**
 - If a resource is deleted in AWS, investigate CloudTrail first!
 
