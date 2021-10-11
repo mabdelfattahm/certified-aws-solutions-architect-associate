@@ -135,7 +135,6 @@
 - **Partner event bus**: receive events from SaaS service or applications (Zendesk, DataDog, Segment, Auth0…)
 - **Custom Event buses**: for your own applications
 - Event buses can be accessed by other AWS accounts
-
 - **Rules**: how to process the events (similar to CloudWatch Events)
 
 ### AWS EventBridge Schema Registry
