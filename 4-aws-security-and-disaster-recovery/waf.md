@@ -5,10 +5,10 @@
 - **WAF can be deployed ONLY on Application Load Balancer, API Gateway and CloudFront**
 - To use WAF we need to define a Web Access Control List (ACL):
     - Rules can include: **IP addresses**, HTTP headers, HTTP body or URI strings
-    - Protects from common attacks such as SQL injection and Cross-Site Scripting (XSS)
+    - Protects from common attacks such as **SQL injection** and **Cross-Site Scripting (XSS)**
     - Size constraint
-    - Geo-match, block certain countries
-    - Rate-based rules, for DDoS protection
+    - **Geo-match**, block certain countries
+    - Rate-based rules (to count occurrences of events) for DDoS protection
 
 ## AWS Firewall Manager
 
