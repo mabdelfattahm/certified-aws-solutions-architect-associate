@@ -7,5 +7,5 @@
 - Supports both symmetric and asymmetric encryption (SSL/TLS keys)
 - No free tier available for CloudHSM
 - Redshift supports CloudHSM for database encryption and key management
-- CloudHSM is also a good idea for SSE-C encryption for S3
+- **CloudHSM is also a good idea for SSE-C encryption for S3**
 - **AWS can not recover credentials keys in case they are lost!**
