@@ -2,6 +2,7 @@
 
 - KMS => AWS manages the software encryption
 - CloudHSM => AWS provisions encryption hardware, we have to use our own client to do the encryption
+  - **Customer Managed CMK**
 - HSM device is tamper resistant, FIPS 140-2 Level 3 compliant
 - HSM cluster can be set across multiple AZ (HA)
 - Supports both symmetric and asymmetric encryption (SSL/TLS keys)
