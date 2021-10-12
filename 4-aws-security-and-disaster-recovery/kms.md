@@ -89,19 +89,25 @@
 
 ### KMS Automatic Key Rotation
 
-- For Customer-managed CMK (not AWS managed CMK)
-- If enabled: automatic key rotation happens every 1 year
+- For **Customer-managed CMK** (not AWS managed CMK)
+- If enabled: automatic key rotation happens **every 1 year**
 - Previous key is kept active so you can decrypt old data
 - New Key has the same CMK ID (only the backing key is changed)
 
 ### KMS Manual Key Rotation
 
-- When you want to rotate key every 90 days, 180 days, etc…
+- When you want to rotate key **every 90 days, 180 days, etc…**
 - New Key has a different CMK ID
 - Keep the previous key active so you can decrypt old data
 - Better to use aliases in this case (to hide the change of key for the application)
-- Good solution to rotate CMK that are not eligible for automatic rotation (like asymmetric CMK)
+- **Good solution to rotate CMK that are not eligible for automatic rotation (like asymmetric CMK)**
 
 ### KMS Alias Updating
 
 - Better to use aliases in this case (to the hide change of key for the application)
+- Call UpdateAlias API to point alias to the newly created key
+
+### Summary
+
+- If you want automatic key rotation, it will be 1 year
+- If not, do manual key rotation
