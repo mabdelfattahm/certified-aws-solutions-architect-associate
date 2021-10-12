@@ -1,5 +1,3 @@
-# Cloud Monitoring Comparison
-
 ## CloudWatch vs CloudTrail vs Config
 
 - **CloudWatch**
