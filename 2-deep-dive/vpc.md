@@ -234,15 +234,15 @@
 - Egress Only Internet Gateway gives our IPv6 instances access to the internet, but they wont be directly reachable by the internet
 - After creating an Egress Only Internet Gateway we have to edit the route tables
 
-## Exposing Services in a VPC to Other VPC
+## AWS PrivateLink - Exposing Services in a VPC to Other VPC
 
-- Option 1: make it public
+- **Option 1: make it public**
     - Goes through the public internet
     - Tough to manage access
-- Option 2: VPC peering
+- **Option 2: VPC peering**
     - Must create many peering relations
     - Opens the whole internal network to the other network
-- Option 3: AWS Private Link (VPC Endpoint Services)
+- **Option 3: AWS Private Link (VPC Endpoint Services)**
     - Most secure and scalable way to expose a service to multiple other VPCs
     - The solution does not require VPC peering, IGW, NAT, route tables
     - Requires a network load balancer in the service VPC and an ENI in the customer VPC
