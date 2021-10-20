@@ -273,6 +273,12 @@
 - Works with Direct Connect Gateway, VPN connections
 - Supports **IP Multicast** (not supported by any other AWS services)
 
+### Transit Gateway: Site-to-Site VPN ECMP
+
+- **ECMP = Equal-cost multi-path routing**
+- Routing strategy to allow to forward a packet over multiple best path
+- Use case: create multiple Siteto-Site VPN connections to **increase the bandwidth of your connection to AWS**
+
 ## VPC Summary
 
 - CIDR: IP Range
