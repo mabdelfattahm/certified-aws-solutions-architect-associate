@@ -279,6 +279,17 @@
 - Routing strategy to allow to forward a packet over multiple best path
 - Use case: create multiple Siteto-Site VPN connections to **increase the bandwidth of your connection to AWS**
 
+## IPv6 in VPC
+
+- **IPv4 cannot be disabled for your VPC and subnets**
+- You can enable IPv6 (they're public IP addresses) to operate in dual stack mode
+- Your EC2 instances will get at least a private internal IPv4 and a public IPv6
+- They can communicate using either IPv4 or IPv6 to the internet through an IGW
+- Troubleshooting:
+    - If you can't launch an EC2 instance in your subnet
+    - It's because there are no available IPv4 in your subnet
+    - **Solution: create a new IPv4 CIDR in your subnet**
+
 ## VPC Summary
 
 - CIDR: IP Range
