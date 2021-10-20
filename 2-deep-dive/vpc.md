@@ -265,7 +265,7 @@
 ## Transit Gateway
 
 - It is a star connection between all the VPCs and the on-premises infrastructure
-- It is for having transitive peering between thousands of VPCs and on-premises and hub-and-spoke connections
+- **It is for having transitive peering between thousands of VPCs and on-premises and hub-and-spoke (star) connections**
 - Transit Gateway is a regional resource, but it can work cross-region
 - It supports cross-account sharing using Resource Access Manager (RAM)
 - We can peer Transit Gateways across regions
