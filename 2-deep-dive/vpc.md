@@ -236,16 +236,17 @@
 
 ## AWS PrivateLink - Exposing Services in a VPC to Other VPC
 
-- **Option 1: make it public**
+- Option 1: make it public
     - Goes through the public internet
     - Tough to manage access
-- **Option 2: VPC peering**
+- Option 2: VPC peering
     - Must create many peering relations
     - Opens the whole internal network to the other network
-- **Option 3: AWS Private Link (VPC Endpoint Services)**
-    - Most secure and scalable way to expose a service to multiple other VPCs
-    - The solution does not require VPC peering, IGW, NAT, route tables
-    - Requires a network load balancer in the service VPC and an ENI in the customer VPC
+- **Option 3: AWS Private Link (VPC Endpoint Services)** (best way)
+    - Most secure and scalable way to expose a service to thousands of VPC (own or others accounts)
+    - Does not require VPC peering, IGW, NAT, route tables...
+    - Requires a network load balancer in the service VPC and an ENI in the customer VPC or GWLB
+    - If NLB is in multiple AZ, and ENIs in multiple AZ, it's fault resistant!
 
 ## EC2-Classic and AWS ClassicLink (deprecated)
 
