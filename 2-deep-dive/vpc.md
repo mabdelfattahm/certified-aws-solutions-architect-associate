@@ -255,6 +255,7 @@
 - ClassicLink allows to link EC2-Classic instances to a VPC inside an account. In order to have a link between a VPC and an EC2-Classic instance we have to:
     - Create a ClassicLink and associate a security group to it which will enable private communication
     - ClassicLink removes the necessity to have IPv4 public addresses for this type of communication
+- **Likely to be distractors in the exam**
 
 ## AWS VPN CloudHub
 
