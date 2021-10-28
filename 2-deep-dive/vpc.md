@@ -185,7 +185,7 @@
 ## Bastion Hosts
 
 - Bastion hosts are used to SSH into instances from private subnets
-- The bastion host is sitting in the public subnet which is connected to the private subnets
+- The bastion host is **sitting in the public subnet** which is connected to the private subnets
 - Bastion host SG must be really strict
 - We have to make sure the bastion host only has port 22 traffic from the IP we need, not from the security group of other instances
 
