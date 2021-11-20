@@ -36,7 +36,7 @@
 - AWS provides a limited number of 5 Elastic IPs (soft limit)
 - Overall it is recommended to avoid using Elastic IP, because:
     - They often reflect pool arhcitectural decisions
-    - Instead, us e a random public IP and register a DNS name to it
+    - Instead, use a random public IP and register a DNS name to it
 
 ## EC2 User Data
 
@@ -79,6 +79,7 @@
 - **Scheduled Reserved Instances**:
     - The instance can be launched within a time window
     - It is recommended when is required for an instance to run at certain times of the day/week/month
+    - Only one year commitement
 
 ### EC2 Spot Instances
 
@@ -141,7 +142,7 @@
 - T2/T3 - burstable instances
 - T2/T3 unlimited: unlimited burst
 
-### Bustable Instances (T2/T3)
+### Burstable Instances (T2/T3)
 
 - Overall the performance of the instance is OK
 - When the machine needs to process something unexpected (a spike load), it can burst and CPU can be very performant
@@ -260,6 +261,32 @@
 - Root volume: must be EBS, encrypted, not instance store. And it must be large enough
 - Hibernate is available for on-demand and reserved instances
 - An instance can not hibernate for more than 60 days
+
+## EC2 Nitro
+
+- Next generation of EC2 instances with new virtualization technology
+- Better performance through 
+    - Better networking options like enhanced networking, HPC, IPv6
+    - Higher Speed EBS (up to 64,000 EBS IOPS vs 32,000 for non-nitro instances)
+    - Better security
+    - Available for virtualized and bare metal instances
+
+## EC2 CPU Options
+
+- EC2 instances come with a combination of RAM and vCPU but they can be customized during instance lunch
+- **# of CPU cores:** you can decrease it (helpful if you need high RAM and low number of CPU) – to decrease licensing costs
+- **# of threads per core:** disable multithreading to have 1 thread per CPU – helpful for high performance computing (HPC) workloads
+
+## EC2 Capacity Reservations
+
+- Capacity Reservations ensure you have EC2 Capacity when needed without the 1 or 3 year commitment
+- You can have manual or planned end-date for the reservation
+- Capacity access is immediate, you get billed as soon as it starts
+- Configuration available:
+    - Availability Zone in which to reserve the capacity (only one AZ)
+    - Number of instances for which to reserve capacity
+    - Instance attributes including instancetype, tenancy, and platform/OS
+- Combined with Reserved Instances and Savings Plans can do cost saving
 
 ## EC2 for Solution Architects
 
