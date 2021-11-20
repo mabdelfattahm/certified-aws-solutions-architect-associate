@@ -4,7 +4,7 @@
 - In cloud we can create and get rid of resources (servers) quickly
 - The goal of an Auto Scaling Group (ASG) is to:
     - Scale out (add more EC2 instances) to match the increased load
-    - Scale in (remote EC2 instances) to match a decreased load
+    - Scale in (remove EC2 instances) to match a decreased load
     - Ensure we have a minimum and a maximum number of machines running
     - Automatically register new instances to a load balancer
 
@@ -34,7 +34,7 @@
 
 - It is possible to define "better" auto scaling rules managed directly by EC2 instances, for example:
     - Target Average CPU Usage
-    - Number of requests on teh ELB per instance
+    - Number of requests on the ELB per instance
     - Average Network In/Out
 - These rules are easier to set up and to reason about then the previous ones
 
@@ -74,6 +74,16 @@
     - Can be used if we can anticipate scaling based on known usage patterns
     - Example: increase the min capacity to 10 at 5 PM on Fridays
 
+### Predictive scaling: 
+continuously forecast load and schedule scaling ahead
+
+### Common Metrics to Scale on
+
+- CPU Utilization (Average CPU Utilization across ASG instances) 
+- Request Per Count Target (Make sure the number of requests per EC2 instance is stable)
+- Average Network In / Out (When application is network bound)
+- Any custom metrics you push using CloudWatch
+
 ### Scaling Cool-downs
 
 - The cool-down period helps to ensure that our ASG doesn't launch or terminate additional instances before the previous scaling activity takes effect
@@ -92,7 +102,7 @@
 ## ASG for Solutions Architects
 
 - **ASG Default Termination Policy**
-    1. Find the AZ which has to most number of instances
+    1. Find the AZ which has to most number of instances (ASG tries to balance the number of instances per AZ by default)
     2. If there are multiple instances to choose from, delete the one with the oldest launch configuration
 - Lifecycle Hooks
     - By default as soon as an instance is launched in an ASG, the instance goes in service
