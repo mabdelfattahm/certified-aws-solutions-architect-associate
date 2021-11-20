@@ -8,10 +8,36 @@
 - EBS is a network drive:
     - It uses the network to communicate with the instance, which can introduce latency
     - It can be detached from an EC2 and attached ot another
-- EBS volumes are locker to an AZ
-- To move a volume across, we need to create a snapshot
+- Can be connected to only one instance at a time
+- EBS volumes are locked to an AZ
+- To move a volume across different AZ, we need to create a snapshot
 - EBS volumes have a provisioned capacity (size in GB and IOPS)
 - Billing is done for all provisioned capacity even if the capacity is not fully used
+- Root volume created with EC2 instance is marked with **Deleted On Termination** by default, secondary EBS are not deleted by default
+- Disabling eleted On Termination on root volume will preserve it after instance termination
+
+## Instance store 
+
+- A physical disk form the physical server where the EC2 instance runs
+- Very high IOPS disk
+- A disk up to 7.5 TiB, stripped to reach 30 TiB
+- A block storage (just like EBS)
+- Can not be increased in size
+- An ephemeral storage (risk of data loss if hardware fails)
+
+## EBS vs Instance Store
+
+- Some instances do not come with a root EBS volume
+- Instead, they come with an **instance store** (ephemeral storage)
+- An instance store is  a physically attached to the machine (EBS is a network drive)
+- Pros of instance stores:
+    - Better I/O performance
+    - Good for buffer, cache, scratch data, temporary content
+    - Data survives a reboot
+- Cons of instance stores:
+    - On stop or termination of the instance, the data from the instance store is lost
+    - An instance store can not be resized
+    - Backups of an instance store must be done manually by the user
 
 ## EBS Volume Types
 
@@ -25,25 +51,33 @@
 
 ## EBS Volume Types - Deep Dive
 
-### GP2
+### GP2/GP3 (General Purpose SSD)
 
 - Recommended for most workloads
 - Can be system boot volume
 - Can be used for virtual desktops, low-latency applications, development and test environments
 - Size can range from 1GiB to 16TiB
-- Small GP2 volumes can burst IOPS to 3000
-- Max IOPS is 16000
-- We get 3 IOPS per GiB, which means at 5334GiB we are the max IOPS size
+- GP3: 
+    - Has Baseline of 3000 IOPS
+    - Throughput of 125 MiB/s 
+    - Can increase IOPS up to 16000 and throughput up to 1000 MiB/s independently
+- GP2:
+    - Small GP2 volumes can burst IOPS to 3000 
+    - Max IOPS is 16000
+    - 3 IOPS per GiB, which means at 5334GiB we are the max IOPS size
 
-### IO1 
+### IO1/IO2 (Provisioned IOPS (PIOPS)) 
 
 - Recommended for business critical applications which require sustained IOPS performance, or more than 16000 IOPS per volume
 - Recommended for large database workloads
 - Size can be between 4Gib and 16 TiB
 - The maximum ratio of provisioned IOPS per requested volume size is 50:1
 - Max IOPS for IO1/2 volumes is 64000 IOPS for instances built on Nitro System and 32000 for other type of instances
+- io2 Block Express (4 GiB – 64 TiB) have sub-millisecond latency and max PIOPS of 256000 with an IOPS:GiB ratio of 1000:1
+- Can be attached to multiple EC2 instances in the same AZ (EBS multi-attach) and each instance has full read/write permissions to the volume
+- To use EBS Multi-Attach, volumes must be using a cluster-aware file system
 
-### ST1
+### ST1 (Throughput Optimized HDD)
 
 - Recommended for streaming workloads
 - It has fast throughput at low price
@@ -52,7 +86,7 @@
 - Max IOPS is 500
 - Max throughput 500 MiB/Sec
 
-### SC1
+### SC1 (Cold HDD)
 
 - Throughput oriented storage for large volumes of data which is infrequently accessed
 - Can not be a boot volume
@@ -60,19 +94,19 @@
 
 ### Limits
 
-- SSD, General Purpose – gp2
-    – Volume size 1 GiB – 16 TiB
-    – Max IOPS/volume 16,000
-- SSD, Provisioned IOPS – i01
-    – Volume size 4 GiB – 16 TiB
-    – Max IOPS/volume 64,000
-– HDD, Throughput Optimized – (st1)
-    – Volume size 500 GiB – 16 TiB 
-    - Throughput measured in MB/s, and includes the ability to burst up to 250 MB/s per TB, with a baseline throughput of 40 MB/s per TB and a maximum throughput of 500 MB/s per volume
+- SSD, General Purpose – (gp2/gp3)
+    - Volume size 1 GiB – 16 TiB
+    - Max IOPS/volume 16000
+- SSD, Provisioned IOPS – (io1/io2)
+    - Volume size 4 GiB – 16 TiB
+    - Max IOPS/volume 64000
+- HDD, Throughput Optimized – (st1)
+    - Volume size 125 GiB – 16 TiB 
+    - Up to 250 MB/s per TB, baseline throughput of 40 MB/s per TB, maximum throughput of 500 MB/s per volume
 - HDD, Cold – (sc1)
-    – Volume size 500 GiB – 16 TiB.
+    - Volume size 124 GiB – 16 TiB.
     - Lowest cost storage – cannot be a boot volume
-– These volumes can burst up to 80 MB/s per TB, with a baseline throughput of 12 MB/s per TB and a maximum throughput of 250 MB/s per volume: HDD, Magnetic – Standard – cheap, infrequently accessed storage – lowest cost storage that can be a boot volume
+    - Up to 80 MB/s per TB, baseline throughput of 12 MB/s per TB, maximum throughput of 250 MB/s per volume
 
 ## EBS Snapshots
 
@@ -109,27 +143,6 @@
     2. Copy the snapshot an enable encryption on the process
     3. Create a new EBS volume from the snapshot (the volume will be encrypted)
     4. Attach the encrypted volume to an instance
-
-## EBS vs Instance Store
-
-- Some instances do not come with a root EBS volume
-- Instead, they come with an **instance store** (ephemeral storage)
-- An instance store is  a physically attached to the machine (EBS is a network drive)
-- Pros of instance stores:
-    - Better I/O performance
-    - Good for buffer, cache, scratch data, temporary content
-    - Data survives a reboot
-- Cons of instance stores:
-    - On stop or termination of the instance, the data from the instance store is lost
-    - An instance store can not be resized
-    - Backups of an instance store must be done manually by the user
-- An instance store is:
-    - A physical disk form the physical server where the EC2 instance runs
-    - Very Hight IOPS disk
-    - A disk up to 7.5 TiB, stripped to reach 30 TiB
-    - A block storage (just like EBS)
-    - Can not be increased in size
-    - An ephemeral storage (risk of data loss if hardware fails)
 
 ## EBS RAID Options
 
