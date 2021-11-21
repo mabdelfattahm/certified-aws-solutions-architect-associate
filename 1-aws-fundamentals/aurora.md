@@ -41,6 +41,11 @@
 - No capacity planning is needed
 - Users pay per seconds, can be cost-effective
 
+## Aurora Multi-Master
+
+- Used in case you need immediate failover for writer node
+- In this scenario, every node does RW
+
 ## Global Aurora
 
 - There are two ways to have cross region replication:
@@ -48,8 +53,14 @@
         - Useful for disaster recovery
         - Simple to put in place
     - Aurora Global Database (recommended):
-        - We can specify one primary region for read/write
+        - We can specify one primary region for (read/write)
         - We can have up to 5 secondary regions (read-only)
         - Replication lag is bellow 1 second
         - We can have up to 16 read replicas per secondary region
         - In case we need to promote one region, the RTO (Recovery Time Objective) is bellow 1 minute
+
+## Aurora Machine Learning
+
+- Add ML-based predicitons to your application using SQL
+- Simple, optimized and secure integration between database and AWS ML services (Comprehened for sentiment analysis / SageMaker for other ML models)
+- Usecase include fraud detection, ads targeting, sentiment analysis, product recommendations
