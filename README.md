@@ -27,6 +27,7 @@
     - [Snow Family](2-deep-dive/snow_family.md)
     - [Storage Gateway](2-deep-dive/storage-gateway.md)
     - [Amazon FSx](2-deep-dive/fsx.md)
+    - [AWS Tranfer Family](2-deep-dive/transfer-family.md)
     - [Networking and VPC](2-deep-dive/vpc.md)
     - [Databases](2-deep-dive/databases.md)
     - [SQS - Simple Queue Service](2-deep-dive/sqs.md)
