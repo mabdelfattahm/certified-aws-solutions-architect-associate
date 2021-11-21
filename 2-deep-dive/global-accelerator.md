@@ -31,6 +31,6 @@
     - Content is served from the edge locations
 - Global Accelerator
     - Improves performance for a wide range of applications over TCP or UDP
-    - Packages to the application are proxied from the edge locations
+    - Packets to the application are proxied from the edge locations
     - Good fit for non-HTTP applications such as gaming (UDP), IoT (MQTT) or Voice over IP
     - Good fir tor HTTP in case if it is required to have static IP addresses or deterministic and fast regional failover
