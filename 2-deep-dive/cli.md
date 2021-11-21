@@ -41,7 +41,7 @@
 
 ## EC2 Instance Metadata
 
-- It allows EC2 instance to "lear about themselves" without using an IAM Role
+- It allows EC2 instance to "learn about themselves" without using an IAM Role
 - The URL to get EC2 metadata information is http://169.254.169.254/latest/meta-data. THis URL only works from EC2 instances, since it is an internal IP
 - We can retrieve the IAM Role name for the EC2 instance but we can not retrieve the IAM Policy
 - Metadata = info about the EC2 instance
@@ -59,7 +59,7 @@
     - Go
     - Ruby
     - C++
-- AWS CLI uses Boto3 under the
+- AWS CLI uses Boto3 under the hood
 
 ### AWS SDK Credentials Security
 
