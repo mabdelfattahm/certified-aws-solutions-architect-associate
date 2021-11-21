@@ -17,6 +17,7 @@
 - Kinesis Streams provides the ability to reprocess/replay the data
 - Multiple applications can consume the same stream, this enables real-time processing with scale of throughput
 - Kinesis is not a database, once the data is inserted, it can not be deleted
+- Data that share the same partition will go into the same shard
 
 ### Kinesis Stream Shards
 
