@@ -34,6 +34,17 @@
     - Retention can be as long as the user wants
     - Helpful for retaining the state of the database for longer period of time
 
+## RDS Auto-scaling
+
+- Increases the storage on RDS instance automatically when it detects storage is running out which reduce manual scaling
+- User must set **Maximum Storage Threshold** (maximum limit for DB Storage)
+- Useful for applications with **unpredicted workloads**
+- Supports all RDS databases
+- Automatically scales the storage if:
+    - Free storage is less than 10%
+    - Low storage lasts for at least 5 minutes
+    - 6 hours have passed since the last modification  
+
 ## RDS Read Replicas
 
 - Read replicas helps to scale the read operations
@@ -47,9 +58,9 @@
     - To fix this we can create read replicas for reporting
 - Read replicas are used for SELECT operations (not INSERT, UPDATE, DELETE)
 - Network cost for read replicas:
-    - In AWS there is network cost if data goes from one AZ to another
-    - In case of cross AZ replication, additional costs may incur because of network traffic
-    - To reduce costs, we could have the read replicas in the same AZ
+    - In AWS there is network cost if data goes from one AZ to another however for **Read Replicas within the same region you don't pay any money**
+    - In case of across region replication, additional costs may incur because of network traffic
+    - To reduce costs, we could have the read replicas in the same region but different AZs
 
 ## RDS Multi AZ (Disaster Recovery)
 
@@ -58,6 +69,7 @@
 - In case of the main database goes down, the traffic is automatically re-routed to the failover database
 - Multi AZ is not used for scaling
 - The read replicas can be set up as Multi AZ for Disaster Recovery
+- You can change RDS from Single-AZ to Multi-AZ in a Zero downtime operation
 
 ## RDS Security
 
@@ -66,8 +78,9 @@
 - AWS RDS provides rest encryption: possibility to encrypt the master and read replicas with AWS KMS - AES-256 encryption
     - Encryption has to be defined at the launch time
     - **If the master is not encrypted, the read replicas cannot be encrypted**
-    - Transparent Data Encryption (TDE) is available for Oracle and SQL Server
-- In-flight encryption: uses SSL certificates to encrypt data from client to RDS in flight
+    - Transparent Data Encryption (TDE) is available for **Oracle and SQL Server**
+- In-flight encryption:
+    - Uses SSL certificates to encrypt data from client to RDS in flight
     - It is required SSL a trust certificate when connecting to database
     - To enforce SSL:
         - PostgeSQL: rds.force_ssl=1 in the AWS RDS Console (Parameter Groups)
@@ -85,10 +98,10 @@
 ### Network Security and IAM
 
 - Network security:
-    - RDS databases are usually deployed within a private subnet
-    - RDS security works by leveraging security groups (similar to EC2), they control who can communicate with the database instance
+    - RDS databases are usually deployed within **a private subnet** not a public one
+    - RDS security works by leveraging security groups (similar to EC2), they control who can **communicate** with the database instance
 - Access management:
-    - There are IAM policies which help control who can manage an AWS RDS database (through the RDS API)
+    - There are IAM policies which help control who can **manage** an AWS RDS database (through the RDS API)
     - Traditional username/password can be used to login into the database
     - IAM-based authentication can be used to login into MySQL and PostgreSQL 
 - IAM authentication:
