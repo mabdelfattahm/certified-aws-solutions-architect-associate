@@ -8,8 +8,8 @@
     - Write scaling using sharding
     - Read scaling using Read Replicas
     - Multi AZ with Failover Capability
-- Since it is a managed solution, AWS takes care of OS maintenance, patching, optimization, setup, 
-monitoring, failure recovery and backups
+- Since it is a managed solution, AWS takes care of OS maintenance, patching, optimization, setup, monitoring, failure recovery and backups
+- **Using Elasticache involves heavy application code changes**
 
 ## ElastiCache Solution Architecture 
 
@@ -23,16 +23,17 @@ monitoring, failure recovery and backups
 
 - Uses logs into the application
 - The application writes the session data to the cache
-- The session data can be reused by other instance of he back-end
+- The session data can be reused by other instance of the back-end
 
 ## Redis vs Memcached
 
-| Redis                                                   | Memcached                                   |
-|---------------------------------------------------------|---------------------------------------------|
-| Multi AZ with auto-failover                             | Multi-node for partitioning data (sharding) |
-| Read replicas to scale reads and have high availability | Non persistent                              |
-| Data durability and AOF persistance                     | No backup and restore                       |
-| Backup and restore features                             | Multi-threaded architecture                 |
+| Redis                                                     | Memcached                                   |
+|-----------------------------------------------------------|---------------------------------------------|
+| Multi AZ with auto-failover                               | Multi-node for partitioning data (sharding) |
+| Read replicas to scale reads and have high availability   | Non persistent                              |
+| Data durability and AOF persistance                       | No backup and restore                       |
+| Backup and restore features                               | Multi-threaded architecture                 |
+|                                                           | No High availability
 
 ## ElastiCache Security
 
