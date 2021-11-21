@@ -24,7 +24,7 @@
     - [CloudTrail](2-deep-dive/cloudtrail.md)
     - [AWS Config](2-deep-dive/config.md)
     - [Global Accelerator](2-deep-dive/global-accelerator.md)
-    - [Snowball](2-deep-dive/snowball.md)
+    - [Snow Family](2-deep-dive/snow_family.md)
     - [Storage Gateway](2-deep-dive/storage-gateway.md)
     - [Amazon FSx](2-deep-dive/fsx.md)
     - [Networking and VPC](2-deep-dive/vpc.md)
