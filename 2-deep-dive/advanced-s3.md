@@ -13,6 +13,12 @@
 - **MFA-Delete can be enabled/disabled only by the owner of the bucket (root account)!**
 - MFA-Delete currently can only be enabled using the CLI
 
+## S3 Force Encryption
+
+- Use a bucket policy and refuse any API call to PUT an S3 object without encryption headers
+- Use the “default encryption” option in S3
+- Note: Bucket Policies are evaluated before “default encryption”
+
 ## S3 Access Logs
 
 - For audit purposes we would want to log all access to S3 buckets
@@ -40,7 +46,7 @@
 
 - Only the new objects are replicated after the replication is activated (no retroactive replication)
 - For DELETE operations:
-    - For deletion without version ID, a delete marker is added to he object. Deletion is not replicated
+    - For deletion without version ID, a delete marker is added to the object. Deletion is not replicated (can be configured)
     - For deletion with version ID, the object is deleted in the source bucket. Deletion is not replicated
 - There is no replication chaining!
 
@@ -58,7 +64,7 @@
 - Amazon S3 Intelligent Tiering
 - Amazon Glacier
 - Amazon Glacier Deep Archive
-- AmazonS3 Reduced Redundancy Storage (deprecated)
+- Amazon S3 Reduced Redundancy Storage (deprecated)
 
 ### S3 Standard - General Purpose
 
