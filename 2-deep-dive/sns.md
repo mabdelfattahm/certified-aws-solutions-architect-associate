@@ -2,9 +2,9 @@
 
 - Pub/Sub model
 - The event produces only sends messages to one SNS topic
-- Each subscriber to the topic will get all the messages be default (we can filter them, if we want)
+- Each subscriber to the topic will get all the messages by default (we can filter them, if we want)
 - We can have up to 10 million subscribers per topic
-- We cave up to 100K topics
+- We can have up to 100K topics
 - Subscribers to the topic can be:
     - SQS
     - HTTP/HTTPS
@@ -47,7 +47,13 @@
 - SQS allows for data persistance, delayed processing and retries of work
 - Ability to add more SQS subscribers over time
 - SQS queues must have an allow access policy for SNS to be able to write to the queues
-- **SNS cannot send messages to SQS FIFO queues (AWS limitation)!**
+- **SNS cannot send messages to SQS FIFO queues (AWS limitation)!** 
+- **To use SQS FIFO you must use SNS FIFO**
 - Use case: send S3 events to multiple queues:
     - For the same combination of even type and prefix we can only have one S3 Event rule
     - In case we want to send the same S3 event to many SQS queues, we must use SNS fan-out
+
+## SNS Message Filtering
+
+- You can use JSON policy to filter messages sent to SNS topic’s subscriptions
+- If a subscription doesn’t have a filter policy, it receives every message
