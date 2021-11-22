@@ -13,8 +13,7 @@
 - We can cache API responses
 
 ## API Gateway - Integrations
-
--** Lambda Functions**
+- **Lambda Functions**
     - It can invoke Lambda functions
     - Easy way to expose REST API backed by AWS Lambda
 - **HTTP**
