@@ -41,7 +41,8 @@
     - [AWS Cognito](3-aws-serverless/cognito.md)
     - [AWS SAM - Serverless Application Model](3-aws-serverless/sam.md)
 4. Security and Disaster Recovery
-    - [Advanced IAM](4-aws-security-and-disaster-recovery/advanced-iam.md)
+    - [STS](4-aws-security-and-disaster-recovery/sts.md)
+    - [KMS](4-aws-security-and-disaster-recovery/kms.md)
     - [Encryption](4-aws-security-and-disaster-recovery/encryption.md)
     - [SSM Parameter Store](4-aws-security-and-disaster-recovery/ssm.md)
     - [Secrets Manager](4-aws-security-and-disaster-recovery/secrets-manager.md)
@@ -53,7 +54,7 @@
     - [DMS - Database Migration Tool](4-aws-security-and-disaster-recovery/dms.md)
     - [AWS DataSync](4-aws-security-and-disaster-recovery/datasync.md)
 5. Other Services
-    - [CICD - Continuous Integration / Continuous Delivery](5-other-services/cicd.md)
+    - [CI/CD - Continuous Integration / Continuous Delivery](5-other-services/cicd.md)
     - [CloudFormation](5-other-services/cloudformation.md)
     - [Containers in the Cloud](5-other-services/containers.md)
     - [Data Analytics](5-other-services/data-analytics.md)
