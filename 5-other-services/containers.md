@@ -1,14 +1,15 @@
 # Containers in the Cloud
 
+- Conainter Management in AWS uses one of three choices
+    - ECS EC2: running ECS tasks an user-provisioned EC2 instances
+    - Fargate: running ECS tasks on AWS provisioned compute instances (serverless)
+    - EKS: running ECS on AWS powered Kubernetes
+- ECR: Docker Container Registry hosted on AWS
+
 ## ECS - Elastic Container service
 
 - ECS is container orchestration service
 - ECS helps to run Docker containers and EC2 machines
-- ECS is made of:
-    - ECS EC2: running ECS tasks an user-provisioned EC2 instances
-    - Fargate: running ECS tasks on AWS provisioned compute instances (serverless)
-    - EKS: running ECS on AWS powered Kubernetes
-    - ECR: Docker Container Registry hosted on AWS
 - ECS and Docker are very popular for micro-services
 - IAM security and roles are at the task level
 
@@ -19,7 +20,7 @@
 - ECS tasks + definition: containers running to create the application
 - ECS IAM roles: roles assigned to ECS tasks
 
-## ECS - ALB integration
+### ECS - ALB integration
 
 - Application Load Balancer has a direct integration feature with ECS called port mapping
 - This allows us to run multiple instances of the same application on the same EC2 machine
@@ -46,7 +47,7 @@
 - ECS IAM task role: role dedicated to each task separately
 - Define a tas role: we can use the `taskRoleArn` parameter in the task definition
 
-### Fargate
+## Fargate
 
 - When launching an ECS cluster, we have to create our EC2 instances, which means basically we are managing the underlying infrastructure
 - With Fargate, this is eliminated since this AWS service is serverless
